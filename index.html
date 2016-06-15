@@ -1,0 +1,57 @@
+<html ng-app>
+    <head>
+	
+	<link href="/css/lightbox.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link type="text/css" rel="StyleSheet" href="/css/vk.css" />
+	<script src="//vk.com/js/api/openapi.js" ></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" defer></script> 
+	
+    </head>
+    <body>
+	<div id="main" class="container mainContent">
+	    <div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12-col-xs-12 albumsList" ng-click="showme=true" ng-hide="showme">
+		    <div ng-controller="ListCtrl" >
+			<ul> 
+			    <li ng-repeat="name in names">
+				<a href="javascript:void(0);" onclick="showAlbum({{name.albumId}},'{{name.albumTitle}}')" id="{{name.albumTitle}}" >
+				    <span class="albumBg" style="background-image: url({{name.albumSrc}})"></span>
+				    <span class="albumName">{{name.albumTitle}}</span>
+				    <span class="albumMore"><i class="fa fa-angle-double-right"></i></span>
+				    <p>
+					<span class="albumSize"><i class="fa fa-camera-retro"></i>{{name.albumEntries}}</span>
+					<span class="albumUpdated"><i class="fa fa-clock-o"></i>{{name.albumUpdated}}</span>
+				    </p>
+				</a>
+			    </li> 
+			</ul>
+		    </div> 
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12-col-xs-12 openedAlbum" ng-show="showme">
+		    <a href="javascript:void(0);" onclick="hideAlbum(this)" ng-click="showme=false" class="hideAlbum">
+			<i class="fa fa-angle-left"></i>
+			<i class="fa fa-folder"></i>
+			<span></span>
+		    </a>
+		    <div class="usersPhotos"></div>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12-col-xs-12 openedImage">
+		    <a href="javascript:void(0);" onclick="hideImage(this)" class="hideImage">
+			<i class="fa fa-angle-left"></i>
+			<i class="fa fa-folder"></i>
+			<span></span>
+		    </a>
+		    <div class="photo"></div>
+		</div>
+	    </div>
+	</div> 
+	
+	<script src="/js/vk.js" defer></script>
+    </body>
+    <div style="display:none;">
+	$POWERED_BY$
+    </div>
+    
+</html>
